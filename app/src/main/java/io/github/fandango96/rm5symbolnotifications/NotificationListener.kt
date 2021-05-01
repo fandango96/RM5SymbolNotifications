@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.provider.Settings
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
@@ -118,20 +119,7 @@ class NotificationListener : NotificationListenerService() {
     }
 
     private fun setSymbolLampEnable(value: Int) {
-        Runtime.getRuntime().exec(
-                arrayOf(
-                        "su",
-                        "-c",
-                        "content",
-                        "insert",
-                        "--uri",
-                        "content://settings/global",
-                        "--bind",
-                        "name:s:switch_symbol_lamp_enable",
-                        "--bind",
-                        "value:i:$value"
-                )
-        )
+        Settings.Global.putInt(contentResolver, "switch_symbol_lamp_enable", value)
     }
 
     companion object {

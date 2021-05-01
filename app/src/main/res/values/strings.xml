@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RM5 Symbol Notifications</string>
     <string name="description">Turn your RedMagic 5S\'s symbol lamp into a notification LED.</string>
-    <string name="description_text">This is an app which lets you use your RedMagic 5S\'s symbol lamp as a notification LED. Please grant root access to the app when it is requested.</string>
+    <string name="description_text">This is an app which lets you use your RedMagic 5S\'s symbol lamp as a notification LED. Please grant the app permission to write secure settings using ADB.</string>
 
     <string name="notification_listener_service">Notification Listener Service</string>
     <string name="notification_listener_service_explanation">For the app to work, you need to enable the Notification Listener Service. Enable it now?</string>

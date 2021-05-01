@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Runtime.getRuntime().exec("su")
-
         if(!isNotificationServiceEnabled()) {
             buildNotificationServiceAlertDialog().show()
         }
