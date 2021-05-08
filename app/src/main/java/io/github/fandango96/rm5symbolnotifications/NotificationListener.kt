@@ -8,6 +8,7 @@ import android.provider.Settings
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import androidx.preference.PreferenceManager
 
 class NotificationListener : NotificationListenerService() {
     private lateinit var notifications: MutableSet<String>
@@ -77,15 +78,22 @@ class NotificationListener : NotificationListenerService() {
             val category = sbn.notification.category
             Log.i(TAG, "Notification posted: $key $isClearable $category")
 
-            if (category != null && !excludedCategories.contains(category) &&
-                    !excludedApps.contains(packageName)) {
-                if (notifications.add(key) && !screenOn) {
-                    startNotification()
-                }
-
-                Log.i(TAG, "Active notification count: ${notifications.size}")
+            if (PreferenceManager.getDefaultSharedPreferences(this@NotificationListener)
+                    .getBoolean("suspend", false)
+            ) {
+                Log.i(TAG, "App suspended, ignoring notification: $packageName, $category")
             } else {
-                Log.i(TAG, "Excluded app/category: $packageName, $category")
+                if (category != null && !excludedCategories.contains(category) &&
+                    !excludedApps.contains(packageName)
+                ) {
+                    if (notifications.add(key) && !screenOn) {
+                        startNotification()
+                    }
+
+                    Log.i(TAG, "Active notification count: ${notifications.size}")
+                } else {
+                    Log.i(TAG, "Excluded app/category: $packageName, $category")
+                }
             }
         }
     }

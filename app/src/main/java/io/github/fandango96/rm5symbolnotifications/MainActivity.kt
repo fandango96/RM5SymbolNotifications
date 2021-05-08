@@ -8,6 +8,7 @@ import android.provider.Settings
 import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         if(!isNotificationServiceEnabled()) {
             buildNotificationServiceAlertDialog().show()
+        }
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
     }
 

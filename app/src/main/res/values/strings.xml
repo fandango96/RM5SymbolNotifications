@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">RM5 Symbol Notifications</string>
     <string name="description">Turn your RedMagic 5S\'s symbol lamp into a notification LED.</string>
-    <string name="description_text">This is an app which lets you use your RedMagic 5S\'s symbol lamp as a notification LED. Please grant the app permission to write secure settings using ADB.</string>
+    <string name="description_text">This is an app which lets you use your RedMagic 5S\'s symbol lamp as a notification LED. Please grant the app permission to write secure settings using ADB. Click on the settings button to switch LED effect and suspend the app.</string>
 
     <string name="notification_listener_service">Notification Listener Service</string>
     <string name="notification_listener_service_explanation">For the app to work, you need to enable the Notification Listener Service. Enable it now?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+
+    <string name="settings">Settings</string>
+    <string name="use_breathe_led_effect">Use breathe LED effect</string>
+    <string name="breathe_led_effect_off">Steady lighting up</string>
+    <string name="breathe_led_effect_on">Breathe</string>
+    <string name="suspend_app">Suspend app</string>
+    <string name="app_suspended">New notifications will not cause the LED to turn on</string>
+    <string name="app_not_suspended">New notifications will cause the LED to turn on</string>
 </resources>

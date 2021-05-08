@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="led_effect"
+        app:summaryOff="@string/breathe_led_effect_off"
+        app:summaryOn="@string/breathe_led_effect_on"
+        app:title="@string/use_breathe_led_effect" />
+
+    <SwitchPreferenceCompat
+        app:key="suspend"
+        app:defaultValue="false"
+        app:summaryOff="@string/app_not_suspended"
+        app:summaryOn="@string/app_suspended"
+        app:title="@string/suspend_app" />
+
+</PreferenceScreen>
